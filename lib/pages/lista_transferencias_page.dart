@@ -1,3 +1,4 @@
+import 'package:alura1/pages/formulario_transferencia_page.dart';
 import 'package:flutter/material.dart';
 import '../models/Transferencia.dart';
 
@@ -19,7 +20,11 @@ class _ListaTransferenciasPageState extends State<ListaTransferenciasPage> {
     return Scaffold(
       appBar: AppBar(title: const Text(_tituloAppBar)),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {  },
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context){
+            return FormularioTransferenciaPage();
+          }));
+        },
         child: const Icon(Icons.add),
       ),
       body: ListView.builder(
