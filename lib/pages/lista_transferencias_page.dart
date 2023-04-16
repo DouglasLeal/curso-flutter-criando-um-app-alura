@@ -20,10 +20,12 @@ class _ListaTransferenciasPageState extends State<ListaTransferenciasPage> {
     return Scaffold(
       appBar: AppBar(title: const Text(_tituloAppBar)),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context){
+        onPressed: () async {
+          Transferencia transferenciaRecebida = await Navigator.push(context, MaterialPageRoute(builder: (context){
             return FormularioTransferenciaPage();
           }));
+
+          _atualiza(transferenciaRecebida);
         },
         child: const Icon(Icons.add),
       ),
@@ -34,6 +36,14 @@ class _ListaTransferenciasPageState extends State<ListaTransferenciasPage> {
             return ItemTransferencia(transferencia);
           },)
     );
+  }
+
+  void _atualiza(Transferencia transferenciaRecebida){
+    if(transferenciaRecebida != null){
+      setState(() {
+        widget._transferencias.add(transferenciaRecebida);
+      });
+    }
   }
 }
 

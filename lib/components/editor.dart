@@ -20,7 +20,7 @@ class Editor extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       child: TextField(
         controller: controlador,
-        style: TextStyle(fontSize: 24),
+        style: const TextStyle(fontSize: 24),
         decoration: InputDecoration(
           icon: icone != null ? Icon(icone) : null,
           labelText: rotulo,
